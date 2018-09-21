@@ -1,6 +1,3 @@
-set nocompatible              " be iMproved, required
-filetype on                  " required        
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/autoload
@@ -17,16 +14,20 @@ Plugin 'Buffergator'
 filetype off
 call pathogen#infect()
 call pathogen#helptags()
+set nocompatible
 filetype plugin indent on
 syntax on   
 filetype plugin on
 if has("autocmd")
     filetype plugin indent on
 endif
+set foldmethod=indent   
+set foldnestmax=10
+"set nofoldenable
+"set foldlevel=2
 
 " Vim-plug section
 Plugin 'python-mode/python-mode', {'branch': 'develop'}
-
 "Insert Plugin
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -46,14 +47,17 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Plugin for Zoom in / out windows
 Plugin 'https://github.com/vim-scripts/ZoomWin.git'
 "-------------------------------------------
+"Personal note for using with markdown named vimwiki
+Plugin 'vimwiki/vimwiki'
+"-------------------------------------------
+"Plugin for tpope/vim-markdown
+Plugin 'tpope/vim-markdown'
+"-------------------------------------------
 "Plugin for nelstrom/vim-markdown-folding
 Plugin 'nelstrom/vim-markdown-folding'
 "------------------------------------------
 "Plugin 'universal-ctags/ctags'
 Plugin 'universal-ctags/ctags'
-"-------------------------------------------
-"Plugin for tpope/vim-markdown
-Plugin 'tpope/vim-markdown'
 "-------------------------------------------
 "Plugin for javascript syntax
 Plugin 'https://github.com/pangloss/vim-javascript.git' 
@@ -75,6 +79,10 @@ Plugin 'https://github.com/vim-syntastic/syntastic.git'
 "-------------------------------------------
 "Plugin for jedi-vim
 Plugin 'davidhalter/jedi-vim'
+"-------------------------------------------
+"Insert for vimoutliner for note taking process -  this use with markdown
+"concept
+Plugin 'vimoutliner/vimoutliner'
 "-------------------------------------------
 "Plugin for colourscheme
 Plugin 'flazz/vim-colorschemes'
@@ -148,7 +156,6 @@ Plugin 'https://github.com/tpope/vim-tbone.git'
 "Insert Plugin for relative and absolute line number
 Plugin 'https://github.com/myusuf3/numbers.vim.git'
 "-------------------------------------------
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
