@@ -184,8 +184,7 @@ let g:javascript_plugin_flow = 1
 nnoremap <F2> :NumbersToggle <CR>
 nnoremap <F3> :NumbersOnOff <CR>
 
-"colorscheme molokai
-colorscheme zenburn 
+colorscheme molokai
 set mouse=a
 
 "Setting for emmet mapping Key for emmet = <C-y> follow by ,
