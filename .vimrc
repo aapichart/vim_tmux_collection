@@ -184,7 +184,8 @@ let g:javascript_plugin_flow = 1
 nnoremap <F2> :NumbersToggle <CR>
 nnoremap <F3> :NumbersOnOff <CR>
 
-colorscheme molokai
+"colorscheme molokai
+colorscheme zenburn 
 set mouse=a
 
 "Setting for emmet mapping Key for emmet = <C-y> follow by ,
@@ -338,14 +339,22 @@ let g:pymode_trim_whitespaces = 0
 let g:pymode_debug = 0
 let g:pymode_rope = 0
 
-
+"set F3 for insert Current Datetime
+nnoremap <F3> "=strftime("%Y-%m-%d (%a)")<CR>P
+inoremap <F3> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
+"Using ,T to insert time ,d to insert Date and ,l to insert datetime  --> (in
+"insertmode.  Anyway, in Normal mode we can press 14 followed by C-A or C-X to
+"increase and decrease date and time
+noremap! <expr> ,T strftime("%H:%M:%S")
+noremap! <expr> ,d strftime("%Y-%m-%d %a")
+noremap! <expr> ,l strftime("%Y-%m-%d %H:%M")
 "set tab and trail character showwing in the editor
 set listchars=tab:>~,nbsp:-,trail:.
 set list
 "try to run python code in vim by pressing \p
-fu PyRun() range
+fu PyRunX() range
   echo system('python -c ' . shellescape(join(getline(a:firstline, a:lastline), "\n")))
 endf
-vmap \r :call PyRun()<CR>
-nmap \r :call PyRun()<CR>
+vmap \r :call PyRunX()<CR>
+nmap \r :call PyRunX()<CR>
 
