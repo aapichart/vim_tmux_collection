@@ -2,13 +2,6 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/autoload
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-"Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Buffergator'
 
 "Pathogen load
 filetype off
@@ -25,7 +18,19 @@ set foldmethod=indent
 set foldnestmax=10
 "set nofoldenable
 "set foldlevel=2
+"
+"
+" ##################### Plugins section ###################################
+"
+"
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+"Plugin 'gmarik/Vundle.vim'
 
+Plugin 'scrooloose/nerdtree'
+Plugin 'Buffergator'
 " Vim-plug section
 Plugin 'python-mode/python-mode', {'branch': 'develop'}
 "Insert Plugin
@@ -50,12 +55,10 @@ Plugin 'https://github.com/vim-scripts/ZoomWin.git'
 "Personal note for using with markdown named vimwiki
 Plugin 'vimwiki/vimwiki'
 "-------------------------------------------
-"Plugin for tpope/vim-markdown
-Plugin 'tpope/vim-markdown'
+"Plugin for plasticboy/vim-markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 "-------------------------------------------
-"Plugin for nelstrom/vim-markdown-folding
-Plugin 'nelstrom/vim-markdown-folding'
-"------------------------------------------
 "Plugin 'universal-ctags/ctags'
 Plugin 'universal-ctags/ctags'
 "-------------------------------------------
@@ -123,17 +126,6 @@ Plugin 'https://github.com/luochen1990/rainbow.git'
 "
 " " Snippets are separated from the engine. Add this if you want them:
 Plugin 'https://github.com/honza/vim-snippets.git'
-"
-inoremap '<c-x>''<c-k>' '<c-x>''<c-k>'
-let g:UltiSnipsUsePythonVersion = 2
-let g:UltiSnipsSnippetsDir="~/.vim/chartsnippets"
-let g:UltiSnipsSnippetDirectories="~/.vim/bundle/vim-snippets/UltiSnips"
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsListSnippets="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 "-------------------------------------------
 "Plugin postgresql 
 Plugin 'https://github.com/lifepillar/pgsql.vim.git'
@@ -174,10 +166,38 @@ call vundle#end()            " required
 "
 "
 "-------------------------------------------
-
+" ##################### Setting section for each plugin #####################
+"
+" Setting for Vimwiki      -------------------------
+"nmap <Leader>we <Plug>VimwikiSplitLink
+"
+" Setting for Vimwiki     --------------------------
+"
+" Setting for plasticboy/vim-markdown -------------------------
+let g:vim_markdown_folding_style_pythonic = 0
+let g:vim_markdown_override_foldtext = 0 
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_follow_anchor = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_edit_url_in = 'hsplit'
+let g:vim_markdown_auto_extension_ext = 'txt'
+" Setting for plasticboy/vim-markdown -------------------------
+"
+" Setting for UltiSnip -------------------------
+inoremap '<c-x>''<c-k>' '<c-x>''<c-k>'
+let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsSnippetsDir="~/.vim/chartsnippets"
+let g:UltiSnipsSnippetDirectories="~/.vim/bundle/vim-snippets/UltiSnips"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 "Set for javascript
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
+" Setting for UltiSnip -------------------------
 
 ""Set Key mapping for toggle absolute and relative numbers
 ""let g: numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
@@ -351,7 +371,7 @@ noremap! <expr> ,l strftime("%Y-%m-%d %H:%M")
 set listchars=tab:>~,nbsp:-,trail:.
 set list
 "try to run python code in vim by pressing \p
-fu PyRunX() range
+fu! PyRunX() range
   echo system('python -c ' . shellescape(join(getline(a:firstline, a:lastline), "\n")))
 endf
 vmap \r :call PyRunX()<CR>
