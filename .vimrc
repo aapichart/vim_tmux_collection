@@ -387,7 +387,9 @@ endf
 vmap \r :call PyRunX()<CR>
 nmap \r :call PyRunX()<CR>
 " Setting for Markdown to HTML
-"nnoremap <leader>md :%w!/usr/local/bin/Markdown.pl --html4tags<CR> > '%:r'.html | :vs %:r.html
+" We use this function for transfering *.md, *.mkd, or *.markdown to *.html
+" by typing ",md" in the vim normal mode.  Vim will create new html file for
+" us
 fu! CreateMd()
     %w !/usr/local/bin/Markdown.pl --html4tags > '%:r'.html
     vs %:r.html
