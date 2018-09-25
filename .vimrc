@@ -1,4 +1,4 @@
-" set the runtime path to include Vundle and initialize
+"" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/autoload
 call vundle#begin()
@@ -59,6 +59,12 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 "-------------------------------------------
+"Setting screensize
+Plugin 'junegunn/goyo.vim'
+"-------------------------------------------
+"Plugin macdic using for finding meaning of any work
+Plugin 'jonhiggs/MacDict.vim'
+"-------------------------------------------
 "Plugin 'universal-ctags/ctags'
 Plugin 'universal-ctags/ctags'
 "-------------------------------------------
@@ -100,7 +106,7 @@ Plugin 'https://github.com/jgdavey/tslime.vim'
 Plugin 'https://github.com/thoughtbot/vim-rspec.git'
 "-------------------------------------------
 "Plugin for surround shortCut
-Plugin 'https://github.com/tpope/vim-surround.git'
+Plugin 'tpope/vim-surround'
 "-------------------------------------------
 "Plugin for commentary shortcut
 Plugin 'https://github.com/tpope/vim-commentary.git'
@@ -173,16 +179,20 @@ call vundle#end()            " required
 "
 " Setting for Vimwiki     --------------------------
 "
+" Setting for MacDict-------------------------
+map <F11> "dyiw:call MacDict(@d)<CR>
+" Setting for MacDict-------------------------
 " Setting for plasticboy/vim-markdown -------------------------
 let g:vim_markdown_folding_style_pythonic = 0
 let g:vim_markdown_override_foldtext = 0 
+set conceallevel=0
+let g:vim_markdown_conceal = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_autowrite = 1
 let g:vim_markdown_edit_url_in = 'hsplit'
 let g:vim_markdown_auto_extension_ext = 'txt'
 " Setting for plasticboy/vim-markdown -------------------------
-"
 " Setting for UltiSnip -------------------------
 inoremap '<c-x>''<c-k>' '<c-x>''<c-k>'
 let g:UltiSnipsUsePythonVersion = 2
@@ -376,4 +386,13 @@ fu! PyRunX() range
 endf
 vmap \r :call PyRunX()<CR>
 nmap \r :call PyRunX()<CR>
+" Setting for Markdown to HTML
+"nnoremap <leader>md :%w!/usr/local/bin/Markdown.pl --html4tags<CR> > '%:r'.html | :vs %:r.html
+fu! CreateMd()
+    %w !/usr/local/bin/Markdown.pl --html4tags > '%:r'.html
+    vs %:r.html
+endf
+nnoremap <silent> <leader>md  :call CreateMd()<CR>
+" -------------------------------------------------------------
+" Setting for Markdown to HTML
 
