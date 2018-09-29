@@ -334,7 +334,6 @@ set statusline+=%*
 set statusline+=%F\ %l\:%c
 
 
-
 "setting for syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
@@ -391,10 +390,11 @@ nmap \r :call PyRunX()<CR>
 " by typing ",md" in the vim normal mode.  Vim will create new html file for
 " us
 fu! CreateMd()
-    %w !/usr/local/bin/Markdown.pl --html4tags > '%:r'.html
-    vs %:r.html
+    %w !/usr/local/bin/Markdown.pl --html4tags > './templates/%:r.html' 
+    vs ./templates/%:r.html
 endf
 nnoremap <silent> <leader>md  :call CreateMd()<CR>
+nnoremap <leader>sl /[<CR>
 " -------------------------------------------------------------
 " Setting for Markdown to HTML
 
