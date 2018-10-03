@@ -1,4 +1,4 @@
-"" set the runtime path to include Vundle and initialize
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/autoload
 call vundle#begin()
@@ -8,7 +8,6 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 set nocompatible
-filetype plugin indent on
 syntax on   
 filetype plugin on
 if has("autocmd")
@@ -16,8 +15,8 @@ if has("autocmd")
 endif
 set foldmethod=indent   
 set foldnestmax=10
-"set nofoldenable
-"set foldlevel=2
+set nofoldenable
+set foldlevel=2
 "
 "
 " ##################### Plugins section ###################################
@@ -355,7 +354,7 @@ let g:sql_type_default = 'pgsql'
 let b:sql_type_override='pgsql' | set ft=sql
 let g:pgsql_pl = ['python']
 
- " python-mode
+" python-mode
 let g:pymode_options = 0              " do not change relativenumber
 let g:pymode_indent = 0               " use vim-python-pep8-indent (upstream of pymode)
 let g:pymode_lint = 0                 " prefer syntastic; pymode has problems when PyLint was invoked already before VirtualEnvActivate..!?!
@@ -366,7 +365,17 @@ let g:pymode_syntax_space_errors = 0  " using MyWhitespaceSetup
 let g:pymode_trim_whitespaces = 0
 let g:pymode_debug = 0
 let g:pymode_rope = 0
+"Setting for Jedi-Vim #######################################
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#auto_initialization = 0
+let g:jedi#auto_vim_configuration = 0
 
+"Setting for Jedi-Vim #######################################
+
+"map ] follow by <space> key for inserting new line below cursor line
+"map [ follow by <space> for inserting new line above cursor line
+nnoremap <silent> ]<Space> :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
+nnoremap <silent> [<Space> :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
 "set F3 for insert Current Datetime
 nnoremap <F3> "=strftime("%Y-%m-%d (%a)")<CR>P
 inoremap <F3> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
@@ -390,8 +399,8 @@ nmap \r :call PyRunX()<CR>
 " by typing ",md" in the vim normal mode.  Vim will create new html file for
 " us
 fu! CreateMd()
-    %w !/usr/local/bin/Markdown.pl --html4tags > './templates/%:r.html' 
-    vs ./templates/%:r.html
+    %w !/usr/local/bin/Markdown.pl --html4tags > '%:r.html' 
+    vs %:r.html
 endf
 nnoremap <silent> <leader>md  :call CreateMd()<CR>
 nnoremap <leader>sl /[<CR>
