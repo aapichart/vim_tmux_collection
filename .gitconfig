@@ -1,0 +1,12 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Apichart Asavarojpanich
+	email = chart.asa@gmail.com
+[core]
+    excludefile = /Users/apichart/.gitignore_global
+[diff]
+    external = git_diff_wrapper
