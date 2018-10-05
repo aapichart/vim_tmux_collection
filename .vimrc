@@ -406,4 +406,3 @@ nnoremap <silent> <leader>md  :call CreateMd()<CR>
 nnoremap <leader>sl /[<CR>
 " -------------------------------------------------------------
 " Setting for Markdown to HTML
-
