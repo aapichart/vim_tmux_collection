@@ -399,8 +399,8 @@ nmap \r :call PyRunX()<CR>
 " by typing ",md" in the vim normal mode.  Vim will create new html file for
 " us
 fu! CreateMd()
-    %w !/usr/local/bin/Markdown.pl --html4tags > '%:r.html' 
-    vs %:r.html
+    %w !/usr/local/bin/Markdown.pl --html4tags > '%:p:h/mdhtml/%:t:r.html' 
+    vs %:p:h/mdhtml/%:t:r.html
 endf
 nnoremap <silent> <leader>md  :call CreateMd()<CR>
 nnoremap <leader>sl /[<CR>
