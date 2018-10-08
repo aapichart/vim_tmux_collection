@@ -1,4 +1,4 @@
-" set the runtime path to include Vundle and initialize
+#set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/autoload
 call vundle#begin()
@@ -288,10 +288,10 @@ inoremap <C-u>l <esc>viwu<esc>A
 noremap <C-u>l viwu<esc>A
 inoremap <C-u> <esc>viwU<esc>A
 noremap <C-u> viwU<esc>A
-"Using this map command to mad qq => insert ' for the selected group of
+"Using this map command to map qq => insert ' for the selected group of
 "character in visual mode
 vnoremap qq <Esc>`>a'<Esc>`<i'<Esc>
-"Using this map command to mad qq => insert " for the selected group of
+"Using this map command to map qq => insert " for the selected group of
 "character in visual mode
 vnoremap qd <Esc>`>a"<Esc>`<i"<Esc>
 "Using this map command to search for visual selected character 
@@ -406,3 +406,4 @@ nnoremap <silent> <leader>md  :call CreateMd()<CR>
 nnoremap <leader>sl /[<CR>
 " -------------------------------------------------------------
 " Setting for Markdown to HTML
+
