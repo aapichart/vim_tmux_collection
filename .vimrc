@@ -64,7 +64,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Override configs by directory 
 Plug 'arielrossanigo/dir-configs-override.vim'
 " Better file browser
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " Code commenter
 Plug 'scrooloose/nerdcommenter'
 " Class/module browser
