@@ -194,9 +194,6 @@ Plugin 'https://github.com/joonty/vim-phpqa.git'
 "Plugin superTab
 "Plugin 'https://github.com/ervandew/supertab.git'
 "-------------------------------------------
-"Plugin for syntastic
-Plugin 'https://github.com/vim-syntastic/syntastic.git'
-"-------------------------------------------
 "Insert for vimoutliner for note taking process -  this use with markdown
 "concept
 Plugin 'vimoutliner/vimoutliner'
@@ -554,8 +551,11 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline_symbols.readonly = '⭤'
 "let g:airline_symbols.linenr = '⭡'
 
+
 "-------------------------------------------
 " ##################### Setting section for each plugin #####################
+" for dbext SQLCompletion errors
+let g:omni_sql_no_default_maps = 1
 "
 " Setting for Vimwiki      -------------------------
 "nmap <Leader>we <Plug>VimwikiSplitLink
@@ -717,42 +717,42 @@ set statusline+=%*
 set statusline+=%F\ %l\:%c
 
 
-"setting for syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = 'x'
-let g:syntastic_style_error_symbol = '!?'
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_style_warning_symbol = ';x'
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+""setting for syntastic
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_loc_list_height = 5
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 1
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_error_symbol = 'x'
+"let g:syntastic_style_error_symbol = '!?'
+"let g:syntastic_warning_symbol = '!'
+"let g:syntastic_style_warning_symbol = ';x'
+"highlight link SyntasticErrorSign SignColumn
+"highlight link SyntasticWarningSign SignColumn
+"highlight link SyntasticStyleErrorSign SignColumn
+"highlight link SyntasticStyleWarningSign SignColumn
 
 "setting for pgsql
 let g:sql_type_default = 'pgsql'
 let b:sql_type_override='pgsql' | set ft=sql
 let g:pgsql_pl = ['python']
 
-" python-mode
-let g:pymode_options = 0              " do not change relativenumber
-let g:pymode_indent = 0               " use vim-python-pep8-indent (upstream of pymode)
-let g:pymode_lint = 0                 " prefer syntastic; pymode has problems when PyLint was invoked already before VirtualEnvActivate..!?!
-let g:pymode_virtualenv = 0           " use virtualenv plugin (required for pylint?!)
-let g:pymode_doc = 0                  " use pydoc
-"let g:pymode_rope_completion = 0      " use YouCompleteMe instead (python-jedi)
-let g:pymode_syntax_space_errors = 0  " using MyWhitespaceSetup
-let g:pymode_trim_whitespaces = 0
-let g:pymode_debug = 0
-let g:pymode_rope = 0
-"Setting for Jedi-Vim #######################################
-autocmd FileType python setlocal completeopt-=preview
-let g:jedi#auto_initialization = 0
-let g:jedi#auto_vim_configuration = 0
+"" python-mode
+"let g:pymode_options = 0              " do not change relativenumber
+"let g:pymode_indent = 0               " use vim-python-pep8-indent (upstream of pymode)
+"let g:pymode_lint = 0                 " prefer syntastic; pymode has problems when PyLint was invoked already before VirtualEnvActivate..!?!
+"let g:pymode_virtualenv = 0           " use virtualenv plugin (required for pylint?!)
+"let g:pymode_doc = 0                  " use pydoc
+""let g:pymode_rope_completion = 0      " use YouCompleteMe instead (python-jedi)
+"let g:pymode_syntax_space_errors = 0  " using MyWhitespaceSetup
+"let g:pymode_trim_whitespaces = 0
+"let g:pymode_debug = 0
+"let g:pymode_rope = 0
+""Setting for Jedi-Vim #######################################
+"autocmd FileType python setlocal completeopt-=preview
+"let g:jedi#auto_initialization = 0
+"let g:jedi#auto_vim_configuration = 0
 
 "Setting for Jedi-Vim #######################################
 
