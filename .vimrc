@@ -133,6 +133,8 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/Wombat'
 " Yank history navigation
 Plug 'vim-scripts/YankRing.vim'
+" Put for block moving in vim
+Plug 'matze/vim-move'
 
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
@@ -508,6 +510,10 @@ vmap <expr> <S-M-DOWN> DVB_Drag('down')
 vmap <expr> <S-M-UP> DVB_Drag('up')
 " mapping to duplicate block
 vmap <expr> D DVB_Duplicate()
+
+" vim-move -----------------------------
+let g:move_key_modifier = 'C'
+
 
 " Signify ------------------------------
 
