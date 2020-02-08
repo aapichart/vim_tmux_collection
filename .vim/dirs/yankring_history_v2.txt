@@ -1,0 +1,5 @@
+,V
+" vim-isort  ------------------------------,V
+let g:vim_isort_python_version = 'python3',V
+Airline,v
+" Airline ------------------------------,V
